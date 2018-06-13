@@ -6,8 +6,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import com.sun.tools.internal.ws.wsdl.document.jaxws.Exception;
-
 public class TempJava {
 
     public static void main(String[] args) {
