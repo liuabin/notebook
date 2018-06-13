@@ -30,9 +30,20 @@ class FileInputTest {
         try {
             FileInputStream fis = new FileInputStream(f);
             System.out.println("File opened successfully.");
-            System.out.println((char)(fis.read()));
+            // for (int i = 0; i < 10; i++) {
+            //     System.out.print((char)(fis.read()));
+            // }
+            char temp;
+            temp = (char)fis.read();
+            while(temp!='\0'){
+                System.out.print(temp);
+                temp = (char)fis.read();
+            }
             fis.close();
-        } catch (IOException e) {
+        } catch (IOException | NullPointerException e) {
+            if (e instanceof IOException) {
+                System.out.println("This is a IO Exception.");
+            }
             e.printStackTrace();
             // throw(new Exception());
         } finally {
