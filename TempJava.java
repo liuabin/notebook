@@ -9,43 +9,42 @@ import java.io.IOException;
 public class TempJava {
 
     public static void main(String[] args) {
-        FileInputTest f = new FileInputTest();
-        f.fileInput("f:\\temp.cpp");
-        // try {
-        // } catch (Exception e){
-        //     e.printStackTrace();
-        // }
+        ECal e = new ECal();
+        e.shift2b();
     }
 }
 
 /**
  * FileInputTest
  */
-class FileInputTest {
 
-    public void fileInput(String path) {
-        File f = new File(path);
+class Change {
+    void func() {
+        // int i = 1;
+        // String s = i + "";
         try {
-            FileInputStream fis = new FileInputStream(f);
-            System.out.println("File opened successfully.");
-            // for (int i = 0; i < 10; i++) {
-            //     System.out.print((char)(fis.read()));
-            // }
-            char temp;
-            temp = (char)fis.read();
-            while(temp!='\0'){
-                System.out.print(temp);
-                temp = (char)fis.read();
-            }
-            fis.close();
-        } catch (IOException | NullPointerException e) {
-            if (e instanceof IOException) {
-                System.out.println("This is a IO Exception.");
-            }
+            System.out.println(Integer.parseInt("4a"));
+        } catch (NumberFormatException e) {
             e.printStackTrace();
-            // throw(new Exception());
-        } finally {
-            // Do noting.
-        }         
+            System.out.println("illegal input.");
+        }
     }
+}
+
+class ECal{
+    void test(int i) {
+        for (int n = 0; n < i; n++) {
+            System.out.println(Math.pow((1+1.0/n), n));
+        }
+    }
+    void shift2b() {
+        byte t = 85;
+        for (int i = 0; i < 8; i++) {
+            byte temp = (byte)(t >> 1);
+            temp = (byte)(temp << 1);
+            System.out.print(t - temp);
+            t = (byte)(t >> 1);
+        }
+    }
+
 }
